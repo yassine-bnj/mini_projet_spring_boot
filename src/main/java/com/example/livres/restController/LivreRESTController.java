@@ -27,19 +27,19 @@ public class LivreRESTController {
 	}
 	
 	@RequestMapping(value="/{id}",method = RequestMethod.GET)
-	public LivreDTO getProduitById(@PathVariable("id") Long id) {
+	public LivreDTO getLivreById(@PathVariable("id") Long id) {
 	return livreService.getLivre(id);
 	 }
 	
 	
 	
 	@RequestMapping(method = RequestMethod.POST)
-	public LivreDTO createProduit(@RequestBody LivreDTO livre) {
+	public LivreDTO createLivre(@RequestBody LivreDTO livre) {
 	return livreService.saveLivre(livre);
 	}
 	
 	@RequestMapping(method = RequestMethod.PUT)
-	public LivreDTO updateProduit(@RequestBody LivreDTO livre) {
+	public LivreDTO updateLivre(@RequestBody LivreDTO livre) {
 	return livreService.updateLivre(livre);
 	}
 	

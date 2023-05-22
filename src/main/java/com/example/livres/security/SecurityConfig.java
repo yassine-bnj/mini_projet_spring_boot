@@ -74,10 +74,12 @@ public class SecurityConfig  {
 			    
 			                        .authorizeHttpRequests()
 			                        .requestMatchers("/login").permitAll()
-			                        .requestMatchers(HttpMethod.GET,"/api/**").hasAnyAuthority("ADMIN","USER")
-			                        
-			                        .requestMatchers("/all").hasAnyAuthority("ADMIN")
-			                        
+			                  //  .requestMatchers(HttpMethod.GET,"/api/**").hasAnyAuthority("ADMIN","USER")
+			                        .requestMatchers("/Userapi/users/register").permitAll()
+			                        .requestMatchers("/Userapi/users/**").hasAnyAuthority("USER","ADMIN")
+			                     .requestMatchers("/Userapi/**").hasAnyAuthority("ADMIN")
+					            
+     
 			                        .anyRequest().authenticated().and()
 			                        .addFilterBefore(new JWTAuthenticationFilter (authMgr),UsernamePasswordAuthenticationFilter.class)
 			                        .addFilterBefore(new JWTAuthorizationFilter(),UsernamePasswordAuthenticationFilter.class);
